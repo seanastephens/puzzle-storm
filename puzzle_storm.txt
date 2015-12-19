@@ -1,0 +1,7 @@
+10x10 grid, obvious scquares dividing the game into the repsective 100 pieces.
+
+Perimeter that's all black except for a one block "opening" that's white.
+
+the non-winning pieces will be blue, the one winning piece will be red.
+
+Any time that all red pieces are moved off of the "winning file" the player wins.
