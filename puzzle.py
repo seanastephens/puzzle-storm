@@ -11,9 +11,12 @@ background = pygame.Surface(screen.get_size())
 background = background.convert()
 background.fill((250, 250, 250))
 
-# Handle Input Events
-while True:
+running = True
+while running:
     for event in pygame.event.get():
         print event
+        if event.type == QUIT:
+            running = False
+
 
 pygame.quit()
