@@ -11,8 +11,11 @@ background = pygame.Surface(screen.get_size())
 background = background.convert()
 background.fill((250, 250, 250))
 
+clock = pygame.time.Clock()
+
 running = True
 while running:
+    clock.tick(60)
     for event in pygame.event.get():
         print event
         if event.type == QUIT:
