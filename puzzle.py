@@ -15,6 +15,7 @@ pygame.display.set_caption('PUZZLES BAM!!!')
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
+RED = (255, 0, 0)
 
 def drawBackground():
 	screen.fill(WHITE)
@@ -46,7 +47,7 @@ def piece(key, x, y):
 		x = x - TILE_SIZE
 		if x == -TILE_SIZE:
 			x = 0
-	pygame.draw.rect(screen, BLACK, block_place)
+	pygame.draw.rect(screen, RED, block_place, 4)
 
 	return x, y
 
