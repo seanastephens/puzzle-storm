@@ -15,6 +15,7 @@ pygame.display.set_caption('PUZZLES BAM!!!')
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
+RED = (255, 0, 0)
 
 def drawBackground():
 	screen.fill(WHITE)
@@ -25,24 +26,40 @@ def drawBackground():
 def drawBuses(buses):
 	pass  # Fix this yo
 
-def piece(key, y):
-	block_place = [0, y, TILE_SIZE, TILE_SIZE]
+def piece(key, x, y):
+	block_place = [x, y, TILE_SIZE, TILE_SIZE]
 
 	if key == K_DOWN: 
 		y = y + TILE_SIZE
+		if y == WIDTH:
+			y = WIDTH - TILE_SIZE
+	
 	elif key == K_UP:
 		y = y - TILE_SIZE
+		if y == -TILE_SIZE:
+			y = 0
+	
+	elif key == K_RIGHT:
+		x = x + TILE_SIZE
+		if x == WIDTH:
+			x = WIDTH - TILE_SIZE
+	
+	elif key == K_LEFT:
+		x = x - TILE_SIZE
+		if x == -TILE_SIZE:
+			x = 0
+	pygame.draw.rect(screen, RED, block_place, 4)
 
-	pygame.draw.rect(screen, BLACK, block_place)
-
-	return y
+	return x, y
 
 clock = pygame.time.Clock()
 
 buses = [(0, 0, 0, 2), (2, 2, 5, 2)]
 
 running = True
+x = 0
 y = 0
+
 while running:
 	clock.tick(50)
 	event = None
@@ -54,7 +71,7 @@ while running:
 			event = event.key
 	drawBackground()
 	drawBuses(buses)
-	y = piece(event, y)
+	x, y = piece(event, x, y)
 	pygame.display.flip()
 	
 		
