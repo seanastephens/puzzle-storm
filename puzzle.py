@@ -11,32 +11,44 @@ BLACK = ( 0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = ( 0, 0, 255)
 
+width = 50	
 
-def drawBoard(t):
+def drawBoard():
 	screen.fill(WHITE)
-	width = 50	
 	for x in range(0, 500, 50):
 		for y in range(0, 500, 50):
-			if (x + y) % 100 == 0:
-				color = BLUE
-			else:
-				color = BLACK
-			pygame.draw.rect(screen, color, [x + (t % 50), y, width, width])
+			color = BLUE
+			pygame.draw.rect(screen, color, [x, y, width, width], 2)
 
-	pygame.display.flip()
+
 	
+def piece(key, y):
+	block_place = [0, y, width, width]
+	pygame.draw.rect(screen, BLACK, block_place)
+	if key == K_DOWN: 
+		y = y + 50
+		#block_place[1] = block_place[1] + 50
+		pygame.draw.rect(screen, BLACK, block_place)
+	pygame.display.flip()
+	#while K_DOWN == True:
+	#	block_place[1] = blockplace[1] + 50
+	return y
 clock = pygame.time.Clock()
 
 running = True
-ticker = 0
+y = 0
 while running:
-    clock.tick(60)
+    clock.tick(50)
+    event = None
     for event in pygame.event.get():
         # print event
         if event.type == QUIT:
             running = False
-    drawBoard(ticker)
-    ticker += 1
-
+        if event.type == KEYDOWN:
+            event = event.key
+    drawBoard()
+    y = piece(event, y)
+	
+		
 
 pygame.quit()
