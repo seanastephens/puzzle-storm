@@ -16,6 +16,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 RED = (255, 0, 0)
+PURPLE = (102, 0, 102)
 
 def drawBackground():
 	screen.fill(WHITE)
@@ -24,7 +25,8 @@ def drawBackground():
 			pygame.draw.rect(screen, BLUE, [x, y, TILE_SIZE, TILE_SIZE], 2)
 
 def drawBuses(buses):
-	pass  # Fix this yo
+	bus = buses[0]
+	pygame.draw.rect(screen, PURPLE, bus, 2)
 
 def piece(key, x, y):
 	block_place = [x, y, TILE_SIZE, TILE_SIZE]
