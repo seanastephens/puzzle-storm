@@ -56,8 +56,12 @@ def piece(key, x, y):
 
 clock = pygame.time.Clock()
 
-buses = [(0, 0, TILE_SIZE * 3, TILE_SIZE), (TILE_SIZE * 2, TILE_SIZE * 2, TILE_SIZE, TILE_SIZE * 2)]
-	# first character = x coordinate, 2nd = y coordinate, 3rd = x length of object, 4th = y length
+# first character = x coordinate, 2nd = y coordinate, 3rd = x length of object, 4th = y length
+buses = [
+	(0, 0, TILE_SIZE * 3, TILE_SIZE), 
+	(TILE_SIZE * 2, TILE_SIZE * 2, TILE_SIZE, TILE_SIZE * 2)
+	(TILE_SIZE * 4, TILE_SIZE * 3, TILE_SIZE, TILE_SIZE * 3)
+]
 running = True
 x = 0
 y = 0
