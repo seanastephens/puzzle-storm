@@ -3,38 +3,39 @@
 import pygame
 from pygame.locals import *
 
+# Global constants
+WIDTH = 500
+HEIGHT = 500
+TILE_SIZE = 50	
+
 pygame.init()
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('PUZZLES BAM!!!')
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 
-width = 50	
-
-def drawBoard():
+def drawBackground():
 	screen.fill(WHITE)
-	for x in range(0, 500, 50):
-		for y in range(0, 500, 50):
-			color = BLUE
-			pygame.draw.rect(screen, color, [x, y, width, width], 2)
+	for x in range(0, WIDTH, TILE_SIZE):
+		for y in range(0, HEIGHT, TILE_SIZE):
+			pygame.draw.rect(screen, BLUE, [x, y, TILE_SIZE, TILE_SIZE], 2)
 
 
 	
 def piece(key, y):
-	block_place = [0, y, width, width]
-	pygame.draw.rect(screen, BLACK, block_place)
+	block_place = [0, y, TILE_SIZE, TILE_SIZE]
+
 	if key == K_DOWN: 
-		y = y + 50
+		y = y + TILE_SIZE
 	elif key == K_UP:
-		y = y - 50
-		#block_place[1] = block_place[1] + 50
-		pygame.draw.rect(screen, BLACK, block_place)
-	pygame.display.flip()
-	#while K_DOWN == True:
-	#	block_place[1] = blockplace[1] + 50
+		y = y - TILE_SIZE
+
+	pygame.draw.rect(screen, BLACK, block_place)
+
 	return y
+
 clock = pygame.time.Clock()
 
 running = True
@@ -48,8 +49,9 @@ while running:
 			running = False
 		if event.type == KEYDOWN:
 			event = event.key
-	drawBoard()
+	drawBackground()
 	y = piece(event, y)
+	pygame.display.flip()
 	
 		
 
