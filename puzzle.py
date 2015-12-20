@@ -17,6 +17,7 @@ WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 RED = (255, 0, 0)
 PURPLE = (102, 0, 102)
+GREEN = (51, 204, 51)
 
 def drawBackground():
 	screen.fill(WHITE)
@@ -25,9 +26,8 @@ def drawBackground():
 			pygame.draw.rect(screen, BLUE, [x, y, TILE_SIZE, TILE_SIZE], 2)
 
 def drawBuses(buses):
-	bus = buses[0]
-	pygame.draw.rect(screen, PURPLE, bus, 2)
-
+	pygame.draw.rect(screen, PURPLE, buses[0])
+	pygame.draw.rect(screen, GREEN, buses[1])
 def piece(key, x, y):
 	block_place = [x, y, TILE_SIZE, TILE_SIZE]
 
@@ -56,8 +56,8 @@ def piece(key, x, y):
 
 clock = pygame.time.Clock()
 
-buses = [(0, 0, 0, 100), (100, 100, 250, 100)]
-
+buses = [(0, 0, TILE_SIZE * 3, TILE_SIZE), (TILE_SIZE * 2, TILE_SIZE * 2, TILE_SIZE, TILE_SIZE * 2)]
+	# first character = x coordinate, 2nd = y coordinate, 3rd = x length of object, 4th = y length
 running = True
 x = 0
 y = 0
