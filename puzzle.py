@@ -18,6 +18,14 @@ BLUE = (0, 0, 255)
 RED = (255, 0, 0)
 PURPLE = (102, 0, 102)
 GREEN = (51, 204, 51)
+CYAN = (0, 204, 255)
+YELLOW = (255, 255, 0)
+ORANGE = (255, 102, 0)
+OLIVE = (51, 51, 0)
+
+
+
+
 
 def drawBackground():
 	screen.fill(WHITE)
@@ -61,7 +69,7 @@ clock = pygame.time.Clock()
 buses = [
 	(0, 0, TILE_SIZE * 3, TILE_SIZE, PURPLE), 
 	(TILE_SIZE * 2, TILE_SIZE * 2, TILE_SIZE, TILE_SIZE * 2, GREEN),
-	(TILE_SIZE * 3, TILE_SIZE * 4, TILE_SIZE, TILE_SIZE * 3, GREEN)
+	(TILE_SIZE * 3, TILE_SIZE * 4, TILE_SIZE, TILE_SIZE * 3, ORANGE)
 ]
 running = True
 x = 0
