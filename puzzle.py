@@ -54,7 +54,7 @@ def piece(key, x, y):
 
 clock = pygame.time.Clock()
 
-buses = [(0, 0, 0, 2), (2, 2, 5, 2)]
+buses = [(0, 0, 0, 100), (100, 100, 250, 100)]
 
 running = True
 x = 0
