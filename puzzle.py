@@ -7,9 +7,9 @@ pygame.init()
 screen = pygame.display.set_mode((500, 500))
 pygame.display.set_caption('PUZZLES BAM!!!')
 
-BLACK = ( 0, 0, 0)
+BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-BLUE = ( 0, 0, 255)
+BLUE = (0, 0, 255)
 
 width = 50	
 
@@ -38,16 +38,16 @@ clock = pygame.time.Clock()
 running = True
 y = 0
 while running:
-    clock.tick(50)
-    event = None
-    for event in pygame.event.get():
-        # print event
-        if event.type == QUIT:
-            running = False
-        if event.type == KEYDOWN:
-            event = event.key
-    drawBoard()
-    y = piece(event, y)
+	clock.tick(50)
+	event = None
+	for event in pygame.event.get():
+		# print event
+		if event.type == QUIT:
+			running = False
+		if event.type == KEYDOWN:
+			event = event.key
+	drawBoard()
+	y = piece(event, y)
 	
 		
 
