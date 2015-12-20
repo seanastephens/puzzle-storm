@@ -27,6 +27,8 @@ def piece(key, y):
 	pygame.draw.rect(screen, BLACK, block_place)
 	if key == K_DOWN: 
 		y = y + 50
+	elif key == K_UP:
+		y = y - 50
 		#block_place[1] = block_place[1] + 50
 		pygame.draw.rect(screen, BLACK, block_place)
 	pygame.display.flip()
