@@ -22,8 +22,9 @@ def drawBackground():
 		for y in range(0, HEIGHT, TILE_SIZE):
 			pygame.draw.rect(screen, BLUE, [x, y, TILE_SIZE, TILE_SIZE], 2)
 
+def drawBuses(buses):
+	pass  # Fix this yo
 
-	
 def piece(key, y):
 	block_place = [0, y, TILE_SIZE, TILE_SIZE]
 
@@ -38,6 +39,8 @@ def piece(key, y):
 
 clock = pygame.time.Clock()
 
+buses = [(0, 0, 0, 2), (2, 2, 5, 2)]
+
 running = True
 y = 0
 while running:
@@ -50,6 +53,7 @@ while running:
 		if event.type == KEYDOWN:
 			event = event.key
 	drawBackground()
+	drawBuses(buses)
 	y = piece(event, y)
 	pygame.display.flip()
 	
